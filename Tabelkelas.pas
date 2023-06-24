@@ -57,7 +57,7 @@ procedure TForm1.editbersih;
 begin
 Edit1.Clear;
 Edit2.Clear;
-c1.Clear
+c1.text := '';
 end;
 
 procedure TForm1.editenable;
@@ -103,7 +103,7 @@ ShowMessage('DATA TIDAK BOLEH KOSONG!');
 end else
 if (zqry1.Locate('nama',Edit1.Text,[])) and (zqry1.Locate('jenis',Edit2.Text,[])) then
 begin
-ShowMessage('DATA KUSTOMER SUDAH DIGUNAKAN');
+ShowMessage('DATA KELAS SUDAH DIGUNAKAN');
 posisiawal;
 end else
 begin
@@ -136,7 +136,7 @@ begin
 id:=dg1.DataSource.DataSet.FieldByName('id_kelas').AsString;
 ShowMessage('DATA BERHASIL DIUPDATE!'); //UPDATE
 zqry1.SQL.Clear;
-zqry1.SQL.Add('Update kostumer set nama= "'+Edit1.Text+'",jenis="'+Edit2.Text+'" where id_kelas="'+id+'"');
+zqry1.SQL.Add('Update tabel_kelas set nama= "'+Edit1.Text+'",jenis="'+Edit2.Text+'" where id_kelas="'+id+'"');
 zqry1. ExecSQL;
 
 zqry1.SQL.Clear;
@@ -152,7 +152,7 @@ if MessageDlg('APAKAH YAKIN MENGHAPUS DATA INI?',mtWarning,[mbYes,mbNo],0)= mrye
 begin
 id:=dg1.DataSource.DataSet.FieldByName('id_kelas').AsString;
 zqry1.SQL.Clear;
-zqry1.SQL.Add(' delete from kostumer where id_kelas="'+id+'"');
+zqry1.SQL.Add(' delete from tabel_kelas where id_kelas="'+id+'"');
 zqry1. ExecSQL;
 zqry1.SQL.Clear;
 zqry1.SQL.Add('select * from tabel_kelas');
@@ -178,6 +178,7 @@ end;
 
 procedure TForm1.dg1CellClick(Column: TColumn);
 begin
+  editenable;
 b1.Enabled:= true;
 b2.Enabled:= False;
 b3.Enabled:= True;
