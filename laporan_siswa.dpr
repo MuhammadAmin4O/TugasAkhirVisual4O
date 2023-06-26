@@ -6,12 +6,14 @@ uses
   Tabelwalikelas in 'Tabelwalikelas.pas' {Form2},
   Tabelortu in 'Tabelortu.pas' {Form3},
   Tabelpoin in 'Tabelpoin.pas' {Form4},
-  Tabeluser in 'Tabeluser.pas' {Form5};
+  Tabeluser in 'Tabeluser.pas' {Form5},
+  Tabelsiswa in 'Tabelsiswa.pas' {Form6};
 
 {$R *.res}
 
 begin
   Application.Initialize;
+  Application.CreateForm(TForm6, Form6);
   Application.CreateForm(TForm5, Form5);
   Application.CreateForm(TForm4, Form4);
   Application.CreateForm(TForm2, Form2);
