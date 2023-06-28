@@ -1,6 +1,6 @@
 object Form6: TForm6
-  Left = 295
-  Top = 128
+  Left = 256
+  Top = 124
   Width = 907
   Height = 652
   Caption = 'Tabel Siswa'
@@ -256,8 +256,8 @@ object Form6: TForm6
     TabOrder = 11
   end
   object Edit6: TEdit
-    Left = 192
-    Top = 296
+    Left = 520
+    Top = 128
     Width = 161
     Height = 21
     TabOrder = 12
@@ -275,30 +275,32 @@ object Form6: TForm6
   end
   object Edit7: TEdit
     Left = 520
-    Top = 128
+    Top = 168
     Width = 161
     Height = 21
     TabOrder = 14
   end
   object Edit8: TEdit
     Left = 520
-    Top = 168
+    Top = 208
     Width = 161
     Height = 21
     TabOrder = 15
   end
   object Edit9: TEdit
     Left = 520
-    Top = 208
+    Top = 248
     Width = 161
     Height = 21
     TabOrder = 16
   end
-  object Edit10: TEdit
-    Left = 520
-    Top = 248
+  object dtp1: TDateTimePicker
+    Left = 192
+    Top = 296
     Width = 161
     Height = 21
+    Date = 45105.552468171300000000
+    Time = 45105.552468171300000000
     TabOrder = 17
   end
   object ds1: TDataSource

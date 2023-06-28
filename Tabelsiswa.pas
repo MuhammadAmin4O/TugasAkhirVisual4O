@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, frxClass, frxDBSet, DB, ZAbstractRODataset, ZAbstractDataset,
-  ZDataset, ZAbstractConnection, ZConnection, StdCtrls, Grids, DBGrids;
+  ZDataset, ZAbstractConnection, ZConnection, StdCtrls, Grids, DBGrids,
+  ComCtrls;
 
 type
   TForm6 = class(TForm)
@@ -42,8 +43,8 @@ type
     l10: TLabel;
     Edit9: TEdit;
     l11: TLabel;
-    Edit10: TEdit;
     l12: TLabel;
+    dtp1: TDateTimePicker;
     procedure editbersih;
     procedure editenable;
     procedure posisiawal;
@@ -83,7 +84,6 @@ c1.text:= '';
 Edit7.Clear;
 Edit8.Clear;
 Edit9.Clear;
-Edit10.Clear;
 end;
 
 procedure TForm6.editenable;
@@ -93,12 +93,12 @@ edit2.Enabled:= True;
 edit3.Enabled:= True;
 edit4.Enabled:= True;
 edit5.Enabled:= True;
+dtp1.Enabled:=True;
 edit6.Enabled:= True;
 c1.Enabled:= True;
 edit7.Enabled:= True;
 edit8.Enabled:= True;
 edit9.Enabled:= True;
-edit10.Enabled:= True;
 end;
 
 procedure TForm6.posisiawal;
@@ -110,12 +110,12 @@ edit2.Enabled:= false;
 edit3.Enabled:= false;
 edit4.Enabled:= false;
 edit5.Enabled:= false;
+dtp1.Enabled:=false;
 edit6.Enabled:= false;
 c1.Enabled:= false;
 edit7.Enabled:= false;
 edit8.Enabled:= false;
 edit9.Enabled:= false;
-edit10.Enabled:= false;
 
 b1.Enabled:= True;
 b2.Enabled:= False;
@@ -139,7 +139,7 @@ end;
 
 procedure TForm6.b2Click(Sender: TObject);
 begin
-if (Edit1.Text= '')or (Edit2.Text ='')or (Edit3.Text= '')or (Edit4.Text ='') or (Edit5.Text= '')or (Edit6.Text ='') or (c1.Text= '')or (Edit7.Text= '') or (Edit8.Text= '') or (Edit9.Text= '') or (Edit10.Text= '')then
+if (Edit1.Text= '')or (Edit2.Text ='')or (Edit3.Text= '')or (Edit4.Text ='') or (Edit5.Text= '')or (Edit6.Text ='') or (c1.Text= '')or (Edit7.Text= '') or (Edit8.Text= '') or (Edit9.Text= '')then
 begin
 ShowMessage('DATA TIDAK BOLEH KOSONG!');
 end else
@@ -151,7 +151,7 @@ end else
 begin
 //simpan
 zqry1.SQL.Clear;
-zqry1.SQL.Add('insert into table_siswa values (null,"'+Edit1.Text+'","'+Edit2.Text+'","'+Edit3.Text+'","'+Edit4.Text+'","'+Edit5.Text+'","'+Edit6.Text+'","'+c1.Text+'","'+Edit7.Text+'","'+Edit8.Text+'","'+Edit9.Text+'","'+Edit10.Text+'")');
+zqry1.SQL.Add('insert into table_siswa values (null,"'+Edit1.Text+'","'+Edit2.Text+'","'+Edit3.Text+'","'+Edit4.Text+'","'+Edit5.Text+'","'+FormatDateTime('yyyy-mm-dd',dtp1.Date)+'","'+Edit6.Text+'","'+c1.Text+'","'+Edit7.Text+'","'+Edit8.Text+'","'+Edit9.Text+'")');
 zqry1.ExecSQL;
 
 zqry1.SQL.Clear;
@@ -165,11 +165,11 @@ end;
 
 procedure TForm6.b3Click(Sender: TObject);
 begin
-if (Edit1.Text= '')or (Edit2.Text ='')or (Edit3.Text= '')or (Edit4.Text ='') or (Edit5.Text= '')or (Edit6.Text ='') or (c1.Text= '')or (Edit7.Text= '') or (Edit8.Text= '')or (Edit9.Text= '')or (Edit10.Text= '')then
+if (Edit1.Text= '')or (Edit2.Text ='')or (Edit3.Text= '')or (Edit4.Text ='') or (Edit5.Text= '')or (Edit6.Text ='') or (c1.Text= '')or (Edit7.Text= '') or (Edit8.Text= '')or (Edit9.Text= '')then
 begin
 ShowMessage('INPUTAN WAJIB DIISI!');
 end else
-if (Edit1.Text = zqry1.Fields[1].AsString) and (Edit2.Text = zqry1.Fields[2].AsString) and  (Edit3.Text = zqry1.Fields[3].AsString) and (Edit4.Text = zqry1.Fields[4].AsString) and (Edit5.Text = zqry1.Fields[5].AsString) and (Edit6.Text = zqry1.Fields[6].AsString)and (c1.Text = zqry1.Fields[7].AsString) and (Edit7.Text = zqry1.Fields[8].AsString) and (Edit8.Text = zqry1.Fields[9].AsString) and (Edit9.Text = zqry1.Fields[10].AsString) and (Edit10.Text = zqry1.Fields[11].AsString) then
+if (Edit1.Text = zqry1.Fields[1].AsString) and (Edit2.Text = zqry1.Fields[2].AsString) and  (Edit3.Text = zqry1.Fields[3].AsString) and (Edit4.Text = zqry1.Fields[4].AsString) and (Edit5.Text = zqry1.Fields[5].AsString) and (Edit6.Text = zqry1.Fields[6].AsString)and (c1.Text = zqry1.Fields[7].AsString) and (Edit7.Text = zqry1.Fields[8].AsString) and (Edit8.Text = zqry1.Fields[9].AsString) and (Edit9.Text = zqry1.Fields[10].AsString) then
 begin
 ShowMessage('DATA TIDAK ADA PERUBAHAN');
 posisiawal;
@@ -178,7 +178,7 @@ begin
 id:=dg1.DataSource.DataSet.FieldByName('id_siswa').AsString;
 ShowMessage('DATA BERHASIL DIUPDATE!'); //UPDATE
 zqry1.SQL.Clear;
-zqry1.SQL.Add('Update table_siswa set nis= "'+Edit1.Text+'",nisn="'+Edit2.Text+'",nama="'+Edit3.Text+'",nik="'+Edit4.Text+'",tempat_lahir="'+Edit5.Text+'",tgl_lahir="'+Edit6.Text+'",jenis_kelamin="'+c1.Text+'",alamat="'+Edit7.Text+'",telp="'+Edit8.Text+'",hp="'+Edit9.Text+'",status="'+Edit10.Text+'" where id_siswa="'+id+'"');
+zqry1.SQL.Add('Update table_siswa set nis= "'+Edit1.Text+'",nisn="'+Edit2.Text+'",nama="'+Edit3.Text+'",nik="'+Edit4.Text+'",tempat_lahir="'+Edit5.Text+'",tgl_lahir="'+FormatDateTime('yyyy-mm-dd',dtp1.Date)+'",jenis_kelamin="'+c1.Text+'",alamat="'+Edit6.Text+'",telp="'+Edit7.Text+'",hp="'+Edit8.Text+'",status="'+Edit9.Text+'" where id_siswa="'+id+'"');
 zqry1. ExecSQL;
 
 zqry1.SQL.Clear;
@@ -232,12 +232,12 @@ Edit2.Text:= zqry1.FieldList[2].AsString;
 Edit3.Text:= zqry1.FieldList[3].AsString;
 Edit4.Text:= zqry1.FieldList[4].AsString;
 Edit5.Text:= zqry1.FieldList[5].AsString;
-Edit6.Text:= zqry1.FieldList[6].AsString;
-c1.Text:= zqry1.FieldList[7].AsString;
-Edit7.Text:= zqry1.FieldList[8].AsString;
-Edit8.Text:= zqry1.FieldList[9].AsString;
-Edit9.Text:= zqry1.FieldList[10].AsString;
-Edit10.Text:= zqry1.FieldList[11].AsString;
+dtp1.Date:=Form6.zqry1.Fields[6].AsDateTime;
+Edit6.Text:= zqry1.FieldList[7].AsString;
+c1.Text:= zqry1.FieldList[8].AsString;
+Edit7.Text:= zqry1.FieldList[9].AsString;
+Edit8.Text:= zqry1.FieldList[10].AsString;
+Edit9.Text:= zqry1.FieldList[11].AsString;
 end;
 
 procedure TForm6.b6Click(Sender: TObject);
