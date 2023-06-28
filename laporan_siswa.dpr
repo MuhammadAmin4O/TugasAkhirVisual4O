@@ -8,12 +8,14 @@ uses
   Tabelpoin in 'Tabelpoin.pas' {Form4},
   Tabeluser in 'Tabeluser.pas' {Form5},
   Tabelsiswa in 'Tabelsiswa.pas' {Form6},
-  Tabelhubungan in 'Tabelhubungan.pas' {Form7};
+  Tabelhubungan in 'Tabelhubungan.pas' {Form7},
+  Tabelsemester in 'Tabelsemester.pas' {Form8};
 
 {$R *.res}
 
 begin
   Application.Initialize;
+  Application.CreateForm(TForm8, Form8);
   Application.CreateForm(TForm7, Form7);
   Application.CreateForm(TForm3, Form3);
   Application.CreateForm(TForm6, Form6);
