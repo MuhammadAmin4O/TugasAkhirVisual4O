@@ -8,7 +8,7 @@ uses
   ZDataset, ZAbstractConnection, ZConnection, StdCtrls, Grids, DBGrids;
 
 type
-  TForm1 = class(TForm)
+  TFormkelas = class(TForm)
     l1: TLabel;
     l2: TLabel;
     l3: TLabel;
@@ -44,7 +44,7 @@ type
   end;
 
 var
-  Form1: TForm1;
+  Formkelas: TFormkelas;
   id: string;
 
 implementation
@@ -53,21 +53,21 @@ implementation
 
 { TForm1 }
 
-procedure TForm1.editbersih;
+procedure TFormkelas.editbersih;
 begin
 Edit1.Clear;
 Edit2.Clear;
 c1.text := '';
 end;
 
-procedure TForm1.editenable;
+procedure TFormkelas.editenable;
 begin
  edit1.Enabled:= True;
 edit2.Enabled:= True;
 c1.Enabled:= True;
 end;
 
-procedure TForm1.posisiawal;
+procedure TFormkelas.posisiawal;
 begin
 editbersih;
 
@@ -82,7 +82,7 @@ b4.Enabled:= False;
 b5.Enabled:= False;
 end;
 
-procedure TForm1.b1Click(Sender: TObject);
+procedure TFormkelas.b1Click(Sender: TObject);
 begin
  editbersih;
 
@@ -95,7 +95,7 @@ b5.Enabled:= True;
 editenable;
 end;
 
-procedure TForm1.b2Click(Sender: TObject);
+procedure TFormkelas.b2Click(Sender: TObject);
 begin
   if (Edit1.Text= '')or (Edit2.Text ='')or(c1.Text= '')then
 begin
@@ -121,7 +121,7 @@ posisiawal;
 end;
 end;
 
-procedure TForm1.b3Click(Sender: TObject);
+procedure TFormkelas.b3Click(Sender: TObject);
 begin
 if (Edit1.Text= '')or (Edit2.Text ='')or(c1.Text= '')then
 begin
@@ -136,7 +136,7 @@ begin
 id:=dg1.DataSource.DataSet.FieldByName('id_kelas').AsString;
 ShowMessage('DATA BERHASIL DIUPDATE!'); //UPDATE
 zqry1.SQL.Clear;
-zqry1.SQL.Add('Update tabel_kelas set nama= "'+Edit1.Text+'",jenis="'+Edit2.Text+'" where id_kelas="'+id+'"');
+zqry1.SQL.Add('Update tabel_kelas set nama= "'+Edit1.Text+'",jenis="'+Edit2.Text+'",jurusan="'+c1.Text+'" where id_kelas="'+id+'"');
 zqry1. ExecSQL;
 
 zqry1.SQL.Clear;
@@ -146,7 +146,7 @@ posisiawal;
 end;
 end;
 
-procedure TForm1.b4Click(Sender: TObject);
+procedure TFormkelas.b4Click(Sender: TObject);
 begin
 if MessageDlg('APAKAH YAKIN MENGHAPUS DATA INI?',mtWarning,[mbYes,mbNo],0)= mryes then
 begin
@@ -166,17 +166,17 @@ posisiawal;
 end;
 end;
 
-procedure TForm1.b5Click(Sender: TObject);
+procedure TFormkelas.b5Click(Sender: TObject);
 begin
 posisiawal;
 end;
 
-procedure TForm1.FormShow(Sender: TObject);
+procedure TFormkelas.FormShow(Sender: TObject);
 begin
  posisiawal;
 end;
 
-procedure TForm1.dg1CellClick(Column: TColumn);
+procedure TFormkelas.dg1CellClick(Column: TColumn);
 begin
   editenable;
 b1.Enabled:= true;

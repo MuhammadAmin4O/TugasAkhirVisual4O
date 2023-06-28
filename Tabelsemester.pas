@@ -191,7 +191,7 @@ if (c1.Text= '')or (c2.Text= '') or (c3.Text= '') or(c4.Text= '') or(c5.Text= ''
 begin
 ShowMessage('INPUTAN WAJIB DIISI!');
 end else
-if (c1.Text = zqry1.Fields[1].AsString) and (c2.Text = zqry1.Fields[2].AsString)and (c3.Text = zqry1.Fields[3].AsString)and (c4.Text = zqry1.Fields[4].AsString)and (c5.Text = zqry1.Fields[5].AsString) and (Edit1.Text = zqry1.Fields[6].AsString) and (Edit2.Text = zqry1.Fields[7].AsString) and (Edit3.Text = zqry1.Fields[8].AsString)and (Edit3.Text = zqry1.Fields[9].AsString) then
+if (c1.Text = zqry1.Fields[1].AsString) and (c2.Text = zqry1.Fields[2].AsString)and (c3.Text = zqry1.Fields[3].AsString)and (c4.Text = zqry1.Fields[4].AsString)and (c5.Text = zqry1.Fields[5].AsString) and (Edit1.Text = zqry1.Fields[7].AsString) and (Edit2.Text = zqry1.Fields[8].AsString) and (Edit3.Text = zqry1.Fields[9].AsString)then
 begin
 ShowMessage('DATA TIDAK ADA PERUBAHAN');
 posisiawal;

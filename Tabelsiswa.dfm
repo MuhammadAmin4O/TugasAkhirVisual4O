@@ -1,6 +1,6 @@
 object Form6: TForm6
-  Left = 256
-  Top = 124
+  Left = 173
+  Top = 60
   Width = 907
   Height = 652
   Caption = 'Tabel Siswa'
