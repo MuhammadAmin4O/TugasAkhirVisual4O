@@ -1,6 +1,6 @@
 object Form11: TForm11
-  Left = 515
-  Top = 177
+  Left = 514
+  Top = 157
   Width = 517
   Height = 410
   Caption = 'Daftar'
@@ -65,6 +65,20 @@ object Form11: TForm11
     Font.Style = []
     ParentFont = False
   end
+  object l5: TLabel
+    Left = 328
+    Top = 248
+    Width = 108
+    Height = 26
+    Caption = 'SUDAH PUNYA AKUN ?'#13#10'LOGIN SEKARANG'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    OnClick = l5Click
+  end
   object Edit1: TEdit
     Left = 192
     Top = 48
@@ -80,16 +94,16 @@ object Form11: TForm11
     TabOrder = 1
   end
   object b2: TButton
-    Left = 120
+    Left = 88
     Top = 240
     Width = 89
     Height = 49
-    Caption = 'SIMPAN'
+    Caption = 'DAFTAR'
     TabOrder = 2
     OnClick = b2Click
   end
   object b3: TButton
-    Left = 224
+    Left = 192
     Top = 240
     Width = 89
     Height = 49

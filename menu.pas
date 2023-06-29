@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Menus, StdCtrls;
+  Dialogs, Menus, StdCtrls, frxpngimage, ExtCtrls;
 
 type
   TForm9 = class(TForm)
@@ -19,6 +19,9 @@ type
     Hubungan1: TMenuItem;
     Semester1: TMenuItem;
     LOGOUT1: TMenuItem;
+    EXIT1: TMenuItem;
+    EXIT2: TMenuItem;
+    img1: TImage;
     procedure Kelas1Click(Sender: TObject);
     procedure WaliKelas1Click(Sender: TObject);
     procedure ORTU1Click(Sender: TObject);
@@ -28,6 +31,7 @@ type
     procedure Hubungan1Click(Sender: TObject);
     procedure Semester1Click(Sender: TObject);
     procedure LOGOUT1Click(Sender: TObject);
+    procedure EXIT2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -89,6 +93,18 @@ procedure TForm9.LOGOUT1Click(Sender: TObject);
 begin
 hide;
 form10.show;
+end;
+
+procedure TForm9.EXIT2Click(Sender: TObject);
+begin
+if MessageDlg('APAKAH INGIN MENUTUP APLIKASI INI ?',mtWarning,[mbYes,mbNo],0)= mryes then
+begin
+Application.Terminate;
+end else
+begin
+hide;
+form9.Show;
+end;
 end;
 
 end.

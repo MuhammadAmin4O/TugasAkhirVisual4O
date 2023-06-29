@@ -21,9 +21,11 @@ type
     zqry1: TZQuery;
     c1: TComboBox;
     c2: TComboBox;
+    l5: TLabel;
     procedure b2Click(Sender: TObject);
     procedure b3Click(Sender: TObject);
     procedure posisiawal;
+    procedure l5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,7 +60,7 @@ zqry1.ExecSQL;
 zqry1.SQL.Clear;
 zqry1.SQL.Add('select * from tabel_user');
 zqry1.Open;
-ShowMessage('DATA BERHASIL DISIMPAN!');
+ShowMessage('PENDAFTARAN BERHASIL !');
 
 end;
 posisiawal;
@@ -76,6 +78,12 @@ Edit1.Clear;
 Edit2.Clear;
 c1.text:= '';
 c2.text:= '';
+end;
+
+procedure TForm11.l5Click(Sender: TObject);
+begin
+  close;
+Form10.show;
 end;
 
 end.

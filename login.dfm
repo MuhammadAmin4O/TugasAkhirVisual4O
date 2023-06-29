@@ -1,6 +1,6 @@
 object Form10: TForm10
-  Left = 512
-  Top = 217
+  Left = 596
+  Top = 210
   Width = 509
   Height = 372
   Caption = 'LOGIN'

@@ -48,18 +48,19 @@ end;
 
 if zqry1.RecordCount=0
 then
-Application.MessageBox('Maaf user name tidak ditemukan','informasi',MB_OK or MB_ICONINFORMATION)
+Application.MessageBox('Maaf user name tidak ditemukan','INFORMASI',MB_OK or MB_ICONINFORMATION)
 else
 begin
 if zqry1.FieldByName('password').AsString<>Edit2.Text
 then
-Application.MessageBox('Pastikan password yang anda masukkan benar','error',MB_OK or MB_ICONERROR)
+Application.MessageBox('Pastikan password yang anda masukkan benar','ERROR',MB_OK or MB_ICONERROR)
 else
 begin
-hide;
+Application.MessageBox('LOGIN BERHASIL','INFORMASI',MB_OK or MB_ICONINFORMATION);
 Form9.Show;
 end;
 end;
+hide;
 end;
 
 procedure TForm10.FormShow(Sender: TObject);
@@ -75,6 +76,7 @@ end;
 
 procedure TForm10.b3Click(Sender: TObject);
 begin
+  Hide;
 form11.showmodal;
 end;
 
