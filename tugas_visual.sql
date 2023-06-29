@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2023 at 07:21 AM
+-- Generation Time: Jun 29, 2023 at 10:53 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -62,7 +62,7 @@ CREATE TABLE `tabel_kelas` (
 --
 
 INSERT INTO `tabel_kelas` (`id_kelas`, `nama`, `jenis`, `jurusan`) VALUES
-(1, '9', 'A', 'IPS');
+(1, '9', 'A', 'IPA');
 
 -- --------------------------------------------------------
 
@@ -147,7 +147,7 @@ INSERT INTO `tabel_semester` (`id_semester`, `id_siswa`, `id_poin`, `id_wali`, `
 CREATE TABLE `tabel_user` (
   `id_user` int(10) NOT NULL,
   `username` varchar(10) NOT NULL,
-  `password` varchar(8) NOT NULL,
+  `password` varchar(20) NOT NULL,
   `level` varchar(15) NOT NULL,
   `status` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -157,7 +157,11 @@ CREATE TABLE `tabel_user` (
 --
 
 INSERT INTO `tabel_user` (`id_user`, `username`, `password`, `level`, `status`) VALUES
-(1, 'Flash', 'flash123', 'Siswa', 'True');
+(1, 'Flash', 'flash123', 'Siswa', 'User'),
+(2, 'admin', 'admin123', 'Wali', 'User'),
+(3, 'loki', 'yupi456', 'Siswa', 'Admin'),
+(4, 'amat', 'amatgant', 'Ortu', 'Admin'),
+(5, 'udin', 'udinqwer', 'Siswa', 'User');
 
 -- --------------------------------------------------------
 
@@ -211,7 +215,7 @@ CREATE TABLE `table_siswa` (
 --
 
 INSERT INTO `table_siswa` (`id_siswa`, `nis`, `nisn`, `nama`, `nik`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `alamat`, `telp`, `hp`, `status`) VALUES
-(1, '12345', '54321', 'Udin', '6378654', 'Rumah Sakit', '2023-06-26', '', 'L', '087654', '089765', 'Aktif'),
+(1, '12345', '54321', 'Udin', '6378654', 'Rumah Sakit', '2023-06-26', 'L', 'Jl Hksn', '087654', '089765', 'Aktif'),
 (2, '12233', '898765', 'Gakpo', '636544', 'Banjarmasin', '2023-06-28', 'L', 'Jl behapal', '081211', '08121', 'Aktif');
 
 --
@@ -311,7 +315,7 @@ ALTER TABLE `tabel_semester`
 -- AUTO_INCREMENT for table `tabel_user`
 --
 ALTER TABLE `tabel_user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tabel_wali_kelas`
