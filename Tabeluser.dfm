@@ -1,6 +1,6 @@
 object Form5: TForm5
-  Left = 250
-  Top = 179
+  Left = 238
+  Top = 140
   Width = 1044
   Height = 540
   Caption = 'TABEL USER'
@@ -148,19 +148,28 @@ object Form5: TForm5
     TabOrder = 8
     OnClick = b6Click
   end
-  object Edit3: TEdit
+  object c1: TComboBox
     Left = 200
-    Top = 128
+    Top = 136
     Width = 161
     Height = 21
+    ItemHeight = 13
     TabOrder = 9
+    Items.Strings = (
+      'Siswa'
+      'Wali'
+      'Ortu')
   end
-  object Edit4: TEdit
+  object c2: TComboBox
     Left = 200
-    Top = 168
+    Top = 176
     Width = 161
     Height = 21
+    ItemHeight = 13
     TabOrder = 10
+    Items.Strings = (
+      'Admin'
+      'User')
   end
   object ds1: TDataSource
     DataSet = zqry1

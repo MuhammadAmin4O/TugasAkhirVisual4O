@@ -26,9 +26,9 @@ type
     zqry1: TZQuery;
     frxdbdtst1: TfrxDBDataset;
     frxrprt1: TfrxReport;
-    Edit3: TEdit;
-    Edit4: TEdit;
     l4: TLabel;
+    c1: TComboBox;
+    c2: TComboBox;
     procedure editbersih;
     procedure editenable;
     procedure posisiawal;
@@ -60,16 +60,16 @@ procedure TForm5.editbersih;
 begin
 Edit1.Clear;
 Edit2.Clear;
-Edit3.Clear;
-Edit4.Clear;
+c1.Text:=' ';
+c2.Text:=' ';
 end;
 
 procedure TForm5.editenable;
 begin
 edit1.Enabled:= True;
 edit2.Enabled:= True;
-edit3.Enabled:= True;
-edit4.Enabled:= True;
+c1.enabled:=True;
+c2.enabled:=True;
 end;
 
 procedure TForm5.posisiawal;
@@ -78,8 +78,8 @@ editbersih;
 
 edit1.Enabled:= false;
 edit2.Enabled:= false;
-edit3.Enabled:= false;
-edit4.Enabled:= false;
+c1.enabled:=False;
+c2.enabled:=False;
 
 b1.Enabled:= True;
 b2.Enabled:= False;
@@ -103,7 +103,7 @@ end;
 
 procedure TForm5.b2Click(Sender: TObject);
 begin
-if (Edit1.Text= '')or (Edit2.Text ='')or(Edit3.Text= '')or (Edit4.Text ='')then
+if (Edit1.Text= '')or (Edit2.Text ='')or(c1.Text= '')or (c2.Text ='')then
 begin
 ShowMessage('DATA TIDAK BOLEH KOSONG!');
 end else
@@ -115,7 +115,7 @@ end else
 begin
 //simpan
 zqry1.SQL.Clear;
-zqry1.SQL.Add('insert into tabel_user values (null,"'+Edit1.Text+'","'+Edit2.Text+'","'+Edit3.Text+'","'+Edit4.Text+'")');
+zqry1.SQL.Add('insert into tabel_user values (null,"'+Edit1.Text+'","'+Edit2.Text+'","'+c1.Text+'","'+c2.Text+'")');
 zqry1.ExecSQL;
 
 zqry1.SQL.Clear;
@@ -129,11 +129,11 @@ end;
 
 procedure TForm5.b3Click(Sender: TObject);
 begin
-if (Edit1.Text= '')or (Edit2.Text ='')or (Edit3.Text= '')or (Edit4.Text ='') then
+if (Edit1.Text= '')or (Edit2.Text ='')or (c1.Text= '')or (c2.Text ='') then
 begin
 ShowMessage('INPUTAN WAJIB DIISI!');
 end else
-if (Edit1.Text = zqry1.Fields[1].AsString) and (Edit2.Text = zqry1.Fields[2].AsString) and (Edit3.Text = zqry1.Fields[3].AsString) and (Edit4.Text = zqry1.Fields[4].AsString)then
+if (Edit1.Text = zqry1.Fields[1].AsString) and (Edit2.Text = zqry1.Fields[2].AsString) and (c1.Text = zqry1.Fields[3].AsString) and (c2.Text = zqry1.Fields[4].AsString)then
 begin
 ShowMessage('DATA TIDAK ADA PERUBAHAN');
 posisiawal;
@@ -142,7 +142,7 @@ begin
 id:=dg1.DataSource.DataSet.FieldByName('id_user').AsString;
 ShowMessage('DATA BERHASIL DIUPDATE!'); //UPDATE
 zqry1.SQL.Clear;
-zqry1.SQL.Add('Update tabel_user set username= "'+Edit1.Text+'",password="'+Edit2.Text+'",level="'+Edit3.Text+'",status="'+Edit4.Text+'" where id_user="'+id+'"');
+zqry1.SQL.Add('Update tabel_user set username= "'+Edit1.Text+'",password="'+Edit2.Text+'",level="'+c1.Text+'",status="'+c2.Text+'" where id_user="'+id+'"');
 zqry1. ExecSQL;
 
 zqry1.SQL.Clear;
@@ -193,8 +193,8 @@ b5.Enabled:= True;
 id:=zqry1.Fields[0].AsString;
 Edit1.Text:= zqry1.FieldList[1].AsString;
 Edit2.Text:= zqry1.FieldList[2].AsString;
-Edit3.Text:= zqry1.FieldList[3].AsString;
-Edit4.Text:= zqry1.FieldList[4].AsString;
+c1.Text:= zqry1.FieldList[3].AsString;
+c2.Text:= zqry1.FieldList[4].AsString;
 end;
 
 procedure TForm5.b6Click(Sender: TObject);

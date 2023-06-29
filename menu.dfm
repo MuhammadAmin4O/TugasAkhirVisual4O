@@ -1,6 +1,6 @@
 object Form9: TForm9
-  Left = 204
-  Top = 166
+  Left = 299
+  Top = 162
   Width = 1044
   Height = 540
   Caption = 'MENU UTAMA'
@@ -51,6 +51,10 @@ object Form9: TForm9
         Caption = 'Semester'
         OnClick = Semester1Click
       end
+    end
+    object LOGOUT1: TMenuItem
+      Caption = 'LOGOUT'
+      OnClick = LOGOUT1Click
     end
   end
 end

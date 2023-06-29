@@ -18,6 +18,7 @@ type
     Siswa1: TMenuItem;
     Hubungan1: TMenuItem;
     Semester1: TMenuItem;
+    LOGOUT1: TMenuItem;
     procedure Kelas1Click(Sender: TObject);
     procedure WaliKelas1Click(Sender: TObject);
     procedure ORTU1Click(Sender: TObject);
@@ -26,6 +27,7 @@ type
     procedure Siswa1Click(Sender: TObject);
     procedure Hubungan1Click(Sender: TObject);
     procedure Semester1Click(Sender: TObject);
+    procedure LOGOUT1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,7 +40,7 @@ var
 implementation
 
 uses Tabelkelas, Tabelwalikelas, Tabelortu, Tabeluser, Tabelsemester,
-  Tabelhubungan, Tabelsiswa, Tabelpoin;
+  Tabelhubungan, Tabelsiswa, Tabelpoin, login;
 
 {$R *.dfm}
 
@@ -81,6 +83,12 @@ end;
 procedure TForm9.Semester1Click(Sender: TObject);
 begin
 Form8.ShowModal;
+end;
+
+procedure TForm9.LOGOUT1Click(Sender: TObject);
+begin
+hide;
+form10.show;
 end;
 
 end.
